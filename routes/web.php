@@ -12,9 +12,9 @@
 */
 
 $app->get('/', function () use ($app) {
+    \Illuminate\Support\Facades\DB::select();
+
     return $app->version();
 });
 
-$app->get('/test', function () use ($app) {
-    return 'this is a string.';
-});
+$app->get('test/{id}', 'ExampleController@test');
